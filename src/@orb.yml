@@ -1,0 +1,12 @@
+version: 2.1
+
+description: >
+  Azure deployment orb
+
+# This information will be displayed in the orb registry and is not mandatory.
+display:
+  source_url: "https://www.github.com/mobomo/az-orb"
+
+# Used Orbs.
+orbs:
+  slack: circleci/slack@4.3.0

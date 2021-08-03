@@ -1,0 +1,44 @@
+description: >
+  Gets all tickets included between "current" deployed tag and "latest" tag, and transitions those tickets after deployments.
+parameters:
+  tag:
+    type: string
+    default: build-v1.0.$CIRCLE_BUILD_NUM
+    description: '"latest" tag to be used by the git log to check tickets that were included'
+  az-user:
+    type: string
+    default: ''
+    description: 'The Azure username.'
+  az-site:
+    type: string
+    default: ''
+    description: 'The Azure site.'
+  env:
+    type: enum
+    enum: [ 'dev', 'test', 'prod' ]
+    default: 'dev'
+    description: 'The environment where to deploy.'
+  jira-url:
+    default: ""
+    type: string
+    description: 'The Jira Cloud URL'
+  jira-transition-id:
+    type: string
+    default: ""
+    description: "The Jira transition ID"
+  jira-auth:
+    type: env_var_name
+    default: JIRA_AUTH
+steps:
+  - run:
+      when: on_success
+      name: Transition Jira tickets
+      environment:
+        TAG: "<< parameters.tag >>"
+        AZ_USER: << parameters.az-user >>
+        AZ_SITE: << parameters.az-site >>
+        AZ_ENV: << parameters.env >>
+        JIRA_URL: << parameters.jira-url >>
+        JIRA_TRANS_ID: << parameters.jira-transition-id >>
+        JIRA_AUTH_TOKEN: "$<< parameters.jira-auth >>"
+      command: <<include(scripts/jira-transition.sh)>>
