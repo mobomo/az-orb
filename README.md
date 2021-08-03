@@ -1,4 +1,4 @@
-# AZ Orb [![CircleCI Build Status](https://circleci.com/gh/mobomo/AZ-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/mobomo/az-orb) [![CircleCI Orb Version](https://circleci.com/gh/mobomo/az-orb.svg?style=svg)](https://circleci.com/orbs/registry/orb/mobomo/az-orb) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mobomo/az-orb/master/LICENSE)
+# AZ Orb
 Handles builds and deployments to Azure sites. Includes optional Jira integration (to transition tickets, 
 create realeses, etc) and Slack notifications.
 
