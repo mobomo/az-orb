@@ -1,6 +1,6 @@
 # AZ Orb
 Handles builds and deployments to Azure sites. Includes optional Jira integration (to transition tickets, 
-create realeses, etc) and Slack notifications.
+create releases, etc) and Slack notifications.
 
 ## Commands
 The commands provided by this Orb uses the following APIs:
